@@ -1,5 +1,10 @@
 import unittest
 
+"""
+>>> sys.maxint
+2147483647
+"""
+
 
 def counting_sort(list_int, max_value):
     """
