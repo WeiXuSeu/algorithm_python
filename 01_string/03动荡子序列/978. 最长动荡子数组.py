@@ -29,7 +29,7 @@ Output: 1
 """
 
 class Solution(object):
-    def maxTurbulenceSize(self, A):
+    def maxTurbulenceSize0(self, A):
         """
         :type A: List[int]
         :rtype: int
@@ -65,4 +65,30 @@ class Solution(object):
             if sub_sum > result:
                 result = sub_sum
         return result
+
+    # Solution2
+    def maxTurbulenceSize1(self, A):
+    	pre = 0
+    	cur = 0
+    	result = 1
+    	sub_len = 1
+    	for i in range(1, len(A)):
+    		cur = cmp(A[i], A[i-1])
+    		# (+/-), (-/+) 抖动，与之前状态不同，满足条件，+1
+    		if pre*cur < 0:
+    			sub_len += 1
+    		# 当前状态为0，重新开始，sub_len = 0
+    		elif cur == 0:
+    			sub_len = 1
+    		# (++,--,0+,0-) 当前状态不为0，且前后状态之积不为-1
+    		else:
+    			sub_len = 2
+    		cur = pre
+    		result = max(result, sub_len)
+    	return result
+
+
+
+
+        
                 
