@@ -56,7 +56,7 @@ class Solution(object):
         return [list(item) for item in result_set]
 
 
-    def subsetsWithDup0(self, nums):
+    def subsetsWithDup1(self, nums):
     	"""
 		如果有重复的，只需考虑最近生成的以该字符结尾的子数组
 		[a,c,c,c]
